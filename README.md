@@ -56,9 +56,28 @@ flowchart LR
 
 ---
 
+## 🔐 Role-Based Authentication & Gateway Portal
+
+CampusOptrix features a server-validated role-based authentication gateway that routes each campus stakeholder directly to their dedicated operational view while sharing the same underlying optimization data bus and 3D digital twin:
+
+![CampusOptrix Authentication Gateway](docs/screenshots/00-login.png)
+
+| Role Portal | Target User | Key Capabilities & Features | Default Demo Login |
+| :--- | :--- | :--- | :--- |
+| **🏛️ Campus Admin** | Space Planners, Operations Staff, Registrars | Full interactive campus floor plan, Google OR-Tools CP-SAT solver execution, What-If drag-and-drop sandbox, institutional analytics, and live conflict mitigation telemetry. | `admin@campusoptrix.edu` / `admin123` |
+| **👨‍🏫 Faculty / Teacher** | Professors, Instructors, Lab Coordinators | Personalized weekly teaching timetable, automated room hardware readiness audits, rapid room issue reporting, and 1-click `"Find Better"` optimization transitions. | `faculty@campusoptrix.edu` / `faculty123` |
+| **🎓 Student Portal** | Enrolled Students, Study Groups | Dynamic enrolled class timetable, `"Next Lecture"` hero banner with room navigation, quiet study space finder, and instant 3D classroom occupancy exploration. | `student@campusoptrix.edu` / `student123` |
+
+---
+
 ## Product Tour
 
-### 1. Campus Overview Dashboard
+### 1. Role-Based Login Gateway
+The central portal welcoming students, faculty, and administrators with role-specific authentication, live credential validation, and direct access to personalized campus dashboards.
+
+![Login Page](docs/screenshots/00-login.png)
+
+### 2. Campus Overview Dashboard
 The command center displaying institutional KPIs, average space utilization rate, total Utilization Debt Score (UDS), active conflict alerts, and a spatial timetable grid.
 
 ![Overview Dashboard](docs/screenshots/01-overview.png)
@@ -107,12 +126,14 @@ Graph-coloring slot recommendation engine calculating zero-conflict options rank
 
 ## Screenshot Gallery
 
-| Overview Dashboard | Campus Floor Plan |
+| Authentication Gateway | Overview Dashboard |
 | :---: | :---: |
-| ![Overview](docs/screenshots/01-overview.png) | ![Map](docs/screenshots/02-campus-map.png) |
+| ![Login Gateway](docs/screenshots/00-login.png) | ![Overview](docs/screenshots/01-overview.png) |
+| **2D Campus Floor Plan** | **3D Digital Twin Viewer** |
+| ![Map](docs/screenshots/02-campus-map.png) | ![3D Room](docs/screenshots/03-room-3d.png) |
 | **Optimization Recommendations** | **Deterministic Rule Trace** |
 | ![Recommendations](docs/screenshots/04-recommendations.png) | ![Rule Trace](docs/screenshots/05-rule-trace.png) |
-| **What-If Scenario Planner** | **Context-Aware AI Assistant** |
+| **What-If Scenario Sandbox** | **AI Operations Assistant** |
 | ![What-If](docs/screenshots/06-what-if.png) | ![AI Assistant](docs/screenshots/08-ai-assistant.png) |
 
 ---
