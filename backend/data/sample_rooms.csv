@@ -1,0 +1,11 @@
+room_id,room_name,building,capacity,room_type,equipment
+LH-101,Lecture Hall 101,Science Block,60,Lecture Hall,"projector,whiteboard,audio_system"
+LH-102,Lecture Hall 102,Science Block,40,Lecture Hall,"projector,whiteboard"
+LH-201,Lecture Hall 201,Tech Complex,75,Lecture Hall,"smart_board,projector,audio_system"
+LH-202,Lecture Hall 202,Tech Complex,35,Lecture Hall,"projector,whiteboard"
+LAB-A,Computing Lab Alpha,Tech Complex,45,Computer Lab,"projector,computers,gpu_cluster,whiteboard"
+LAB-B,Computing Lab Beta,Tech Complex,30,Computer Lab,"projector,computers,whiteboard"
+LAB-HW,Hardware & IoT Lab,Science Block,35,Electronics Lab,"projector,oscilloscopes,iot_kits,whiteboard"
+SEM-01,Seminar Hall North,Arts Block,120,Seminar Hall,"smart_board,projector,audio_system,recording_gear"
+SEM-02,Auditorium West,Arts Block,150,Seminar Hall,"smart_board,projector,audio_system,recording_gear"
+CR-301,Classroom 301,Arts Block,30,Classroom,whiteboard

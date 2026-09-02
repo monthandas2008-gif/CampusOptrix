@@ -1,0 +1,202 @@
+:root {
+  /* University Operations Palette */
+  --bg-canvas: #F7F9FC;
+  --surface-white: #FFFFFF;
+  --surface-hover: #F1F5F9;
+  --surface-muted: #F8FAFC;
+  --surface-subtle: #F1F5FA;
+  
+  --primary-blue: #2457A6;
+  --primary-blue-hover: #1B4588;
+  --primary-blue-light: rgba(36, 87, 166, 0.08);
+  --secondary-blue: #5B8DEF;
+  --secondary-blue-light: rgba(91, 141, 239, 0.12);
+  --sky-blue: #91B9E8;
+  --sky-blue-light: rgba(145, 185, 232, 0.15);
+  
+  --teal: #2F9C95;
+  --teal-light: rgba(47, 156, 149, 0.12);
+  
+  --status-green: #45A970;
+  --status-green-bg: rgba(69, 169, 112, 0.12);
+  --status-green-border: rgba(69, 169, 112, 0.35);
+  
+  --status-amber: #D5A13A;
+  --status-amber-bg: rgba(213, 161, 58, 0.12);
+  --status-amber-border: rgba(213, 161, 58, 0.35);
+  
+  --status-coral: #D86A6A;
+  --status-coral-bg: rgba(216, 106, 106, 0.12);
+  --status-coral-border: rgba(216, 106, 106, 0.35);
+  
+  --text-primary: #172033;
+  --text-secondary: #68758A;
+  --text-muted: #94A3B8;
+  
+  --border-color: #DFE6EF;
+  --border-subtle: #EDF2F7;
+  --border-strong: #CBD5E1;
+  
+  /* Typography */
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', Consolas, monospace;
+  --font-heading: 'Archivo', 'IBM Plex Sans', sans-serif;
+  
+  /* Elevation & Radius */
+  --shadow-sm: 0 1px 2px 0 rgba(16, 24, 40, 0.04);
+  --shadow-md: 0 4px 8px -2px rgba(16, 24, 40, 0.06), 0 2px 4px -2px rgba(16, 24, 40, 0.04);
+  --shadow-lg: 0 12px 20px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
+  --shadow-drawer: -6px 0 28px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 20px 40px -8px rgba(0, 0, 0, 0.18);
+  
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle Campus Grid Pattern */
+.campus-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(36, 87, 166, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(36, 87, 166, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Clean White Card Surface */
+.card-surface {
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.15s ease;
+}
+
+.card-surface:hover {
+  border-color: var(--border-strong);
+}
+
+.mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Primary University Action Button */
+.btn-primary {
+  background: var(--primary-blue);
+  color: #FFFFFF;
+  border: 1px solid var(--primary-blue);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-blue-hover);
+  border-color: var(--primary-blue-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background: var(--surface-white);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+/* Semantic Badges */
+.badge-healthy {
+  background: var(--status-green-bg);
+  color: var(--status-green);
+  border: 1px solid var(--status-green-border);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.badge-attention {
+  background: var(--status-amber-bg);
+  color: var(--status-amber);
+  border: 1px solid var(--status-amber-border);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.badge-conflict {
+  background: var(--status-coral-bg);
+  color: var(--status-coral);
+  border: 1px solid var(--status-coral-border);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Live Operational Pulse Dot Animation */
+@keyframes pulse-live {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.pulse-dot {
+  animation: pulse-live 2s infinite ease-in-out;
+}
+
+/* Keyframe animations */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

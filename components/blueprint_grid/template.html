@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CampusOptix Blueprint Grid</title>
+  <style>
+    /* __CUSTOM_CSS__ */
+  </style>
+</head>
+<body>
+  <div class="blueprint-header">
+    <div>
+      <span class="blueprint-title">📐 CAMPUS SPATIAL ALLOCATION MATRIX</span>
+      <span class="blueprint-meta" style="margin-left: 12px;">DAY: __SELECTED_DAY__ // SCALE: 1 SLOT = 1 HOUR</span>
+    </div>
+    <div class="blueprint-meta" id="uds-ticker">
+      AGGREGATE DAY UDS: <span id="day-uds-val" style="font-weight:700; color:var(--ink); font-size:14px;">0.0</span>
+    </div>
+  </div>
+
+  <div class="blueprint-table-container">
+    <table class="blueprint-table" id="matrix-table">
+      <thead>
+        <tr>
+          <th class="room-col-header">FACILITY / ROOM</th>
+          <!-- __SLOT_HEADERS__ -->
+        </tr>
+      </thead>
+      <tbody id="matrix-body">
+        <!-- Rendered by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="annotation-panel" id="annotation-box">
+    <div id="annotation-content" style="color: #333;">
+      Select or drag any course card to inspect its real-time constraint satisfaction and debt impact.
+    </div>
+  </div>
+
+  <script>
+    const rooms = __ROOMS_JSON__;
+    const initialEvents = __EVENTS_JSON__;
+    const slots = __SLOTS_JSON__;
+    const weights = __WEIGHTS_JSON__;
+    let currentEvents = JSON.parse(JSON.stringify(initialEvents));
+
+    // Calculate UDS for a single room-slot
+    function calculateSlotMetrics(enrolled, capacity, reqEquipList, roomEquipList) {
+      const util = capacity > 0 ? (enrolled / capacity) : 0.0;
+      const utilPct = (util * 100).toFixed(1);
+      
+      let idlePenalty = 0.0;
+      if (enrolled > 0) {
+        idlePenalty = Math.max(0, 0.60 - util) * 10.0;
+      }
+      
+      const overcapPenalty = Math.max(0, util - 1.0) * 30.0;
+      
+      // Equipment check
+      const roomEquipSet = new Set(roomEquipList || []);
+      let isMismatch = false;
+      if (enrolled > 0 && reqEquipList && reqEquipList.length > 0) {
+        for (const eq of reqEquipList) {
+          if (!roomEquipSet.has(eq)) {
+            isMismatch = true;
+            break;
+          }
+        }
+      }
+      const mismatchPenalty = isMismatch ? 15.0 : 0.0;
+      
+      const uds = (weights.w1_idle * idlePenalty) + 
+                  (weights.w2_mismatch * mismatchPenalty) + 
+                  (weights.w3_overcap * overcapPenalty);
+                  
+      return {
+        util: util,
+        utilPct: utilPct,
+        idlePenalty: idlePenalty,
+        overcapPenalty: overcapPenalty,
+        mismatchPenalty: mismatchPenalty,
+        uds: uds,
+        isMismatch: isMismatch
+      };
+    }
+
+    function renderMatrix() {
+      const tbody = document.getElementById('matrix-body');
+      tbody.innerHTML = '';
+      let totalDayUDS = 0.0;
+
+      // Group current events by (room_id, slot)
+      const eventMap = {};
+      currentEvents.forEach(ev => {
+        const key = `${ev.room_id}_${ev.slot}`;
+        if (!eventMap[key]) eventMap[key] = [];
+        eventMap[key].push(ev);
+      });
+
+      rooms.forEach(room => {
+        const tr = document.createElement('tr');
+        
+        // Room Header Column
+        const tdRoom = document.createElement('td');
+        tdRoom.className = 'room-meta-cell';
+        tdRoom.innerHTML = `
+          <div class="room-name-label">${room.room_name}</div>
+          <div class="room-sub-label">${room.building} • Cap: ${room.capacity} • ${room.room_type || 'Classroom'}</div>
+          <div class="room-equip-tags">🧰 ${room.equipment_list.length > 0 ? room.equipment_list.join(', ') : 'Standard Desk'}</div>
+        `;
+        tr.appendChild(tdRoom);
+
+        // Slots
+        slots.forEach(slot => {
+          const tdSlot = document.createElement('td');
+          tdSlot.className = 'slot-cell';
+          tdSlot.dataset.roomId = room.room_id;
+          tdSlot.dataset.slot = slot;
+
+          const key = `${room.room_id}_${slot}`;
+          const slotEvents = eventMap[key] || [];
+          
+          let totalEnrolled = 0;
+          let combinedReqEquip = [];
+          slotEvents.forEach(e => {
+            totalEnrolled += e.enrolled_students;
+            if (e.required_equipment_list) {
+              combinedReqEquip = combinedReqEquip.concat(e.required_equipment_list);
+            }
+          });
+
+          const metrics = calculateSlotMetrics(totalEnrolled, room.capacity, combinedReqEquip, room.equipment_list);
+          totalDayUDS += metrics.uds;
+
+          // Render Course Cards
+          slotEvents.forEach(ev => {
+            const card = document.createElement('div');
+            card.className = 'course-card';
+            card.draggable = true;
+            card.id = `card_${ev.event_id}`;
+            card.dataset.eventId = ev.event_id;
+
+            let cardClass = 'healthy';
+            let badges = '';
+            if (ev.enrolled_students > room.capacity) {
+              cardClass = 'overcapacity';
+              badges += `<span class="badge-tag badge-overcap">⚠️ OVERCAP +${ev.enrolled_students - room.capacity}</span>`;
+            } else if (metrics.isMismatch) {
+              cardClass = 'mismatch';
+              badges += `<span class="badge-tag badge-mismatch">⚙️ MISMATCH</span>`;
+            } else if (metrics.util < 0.30) {
+              cardClass = 'underutilized';
+            }
+            card.classList.add(cardClass);
+
+            card.innerHTML = `
+              <div class="course-code">${ev.course_code} <span style="font-size:10px; font-weight:normal;">(${ev.section || 'A'})</span></div>
+              <div class="course-stats">
+                <span>👥 ${ev.enrolled_students} / ${room.capacity}</span>
+                <span>${metrics.utilPct}%</span>
+              </div>
+              <div style="margin-top:2px;">${badges}</div>
+            `;
+
+            // Drag Events
+            card.addEventListener('dragstart', (e) => {
+              e.dataTransfer.setData('text/plain', ev.event_id);
+              card.style.opacity = '0.4';
+            });
+            card.addEventListener('dragend', () => {
+              card.style.opacity = '1.0';
+            });
+
+            // Click to inspect
+            card.addEventListener('click', () => {
+              showAnnotation(ev, room, slot, metrics);
+            });
+
+            tdSlot.appendChild(card);
+          });
+
+          // Slot Drop Handlers
+          tdSlot.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            tdSlot.classList.add('drag-over');
+          });
+
+          tdSlot.addEventListener('dragleave', () => {
+            tdSlot.classList.remove('drag-over');
+          });
+
+          tdSlot.addEventListener('drop', (e) => {
+            e.preventDefault();
+            tdSlot.classList.remove('drag-over');
+            const eventId = e.dataTransfer.getData('text/plain');
+            handleMove(eventId, room.room_id, slot);
+          });
+
+          tr.appendChild(tdSlot);
+        });
+
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('day-uds-val').textContent = totalDayUDS.toFixed(1);
+    }
+
+    function handleMove(eventId, targetRoomId, targetSlot) {
+      const ev = currentEvents.find(e => e.event_id === eventId);
+      if (!ev) return;
+
+      const origRoomId = ev.room_id;
+      const origSlot = ev.slot;
+      const origRoom = rooms.find(r => r.room_id === origRoomId);
+      const targetRoom = rooms.find(r => r.room_id === targetRoomId);
+
+      // Update event
+      ev.room_id = targetRoomId;
+      ev.slot = targetSlot;
+
+      renderMatrix();
+
+      // Compute audit annotation
+      const origMetrics = calculateSlotMetrics(ev.enrolled_students, origRoom ? origRoom.capacity : 1, ev.required_equipment_list, origRoom ? origRoom.equipment_list : []);
+      const newMetrics = calculateSlotMetrics(ev.enrolled_students, targetRoom.capacity, ev.required_equipment_list, targetRoom.equipment_list);
+      const udsGain = origMetrics.uds - newMetrics.uds;
+
+      const annot = document.getElementById('annotation-content');
+      annot.innerHTML = `
+        <strong>⚡ WHAT-IF REALLOCATION AUDIT:</strong> Reassigned <code>${ev.course_code}</code> (${ev.course_name})<br>
+        • Move: <b>${origRoom ? origRoom.room_name : origRoomId} [${origSlot}]</b> ➔ <b>${targetRoom.room_name} [${targetSlot}]</b><br>
+        • Capacity Check: ${ev.enrolled_students} students into ${targetRoom.capacity}-seat room (${ev.enrolled_students <= targetRoom.capacity ? '<span style="color:green">✓ SAFE</span>' : '<span style="color:red">✗ OVERCAPACITY</span>'})<br>
+        • Equipment Check: ${newMetrics.isMismatch ? '<span style="color:red">✗ Missing Required Hardware</span>' : '<span style="color:green">✓ 100% Match</span>'}<br>
+        • UDS Debt Delta: ${origMetrics.uds.toFixed(1)} ➔ ${newMetrics.uds.toFixed(1)} (<strong>${udsGain >= 0 ? '-' + udsGain.toFixed(1) + ' Debt Improved' : '+' + Math.abs(udsGain).toFixed(1) + ' Debt Increased'}</strong>)
+      `;
+    }
+
+    function showAnnotation(ev, room, slot, metrics) {
+      const annot = document.getElementById('annotation-content');
+      annot.innerHTML = `
+        <strong>📍 COURSE INSPECTION:</strong> <code>${ev.course_code}</code> - ${ev.course_name} (${ev.section || 'Sec A'})<br>
+        • Assigned: <b>${room.room_name}</b> (${room.building}) during <b>${slot}</b><br>
+        • Enrolled: <b>${ev.enrolled_students}</b> | Room Capacity: <b>${room.capacity}</b> (Utilization: <b>${metrics.utilPct}%</b>)<br>
+        • Slot UDS Score: <b>${metrics.uds.toFixed(1)}</b> (Idle Penalty: ${metrics.idlePenalty.toFixed(1)}, Overcap: ${metrics.overcapPenalty.toFixed(1)}, Mismatch: ${metrics.mismatchPenalty.toFixed(1)})<br>
+        • Required Equipment: <em>${ev.required_equipment_list.length > 0 ? ev.required_equipment_list.join(', ') : 'None'}</em> | Room Available: <em>${room.equipment_list.join(', ')}</em>
+      `;
+    }
+
+    // Initial render
+    renderMatrix();
+  </script>
+</body>
+</html>

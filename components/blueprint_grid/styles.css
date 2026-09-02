@@ -1,0 +1,219 @@
+:root {
+  --paper: #F2EFE6;
+  --ink: #1C2B3A;
+  --blueprint: #2F5D8A;
+  --blueprint-light: rgba(47, 93, 138, 0.12);
+  --signal-amber: #C97A2E;
+  --signal-amber-bg: rgba(201, 122, 46, 0.18);
+  --signal-green: #4C7A5E;
+  --signal-green-bg: rgba(76, 122, 94, 0.18);
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  background-image: 
+    linear-gradient(to right, rgba(47, 93, 138, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(47, 93, 138, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  box-sizing: border-box;
+}
+
+.blueprint-header {
+  border-bottom: 2px solid var(--blueprint);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.blueprint-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.blueprint-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--blueprint);
+}
+
+.blueprint-table-container {
+  overflow-x: auto;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+}
+
+.blueprint-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.blueprint-table th {
+  background: var(--blueprint);
+  color: var(--paper);
+  padding: 8px 6px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blueprint-table th.room-col-header {
+  background: var(--ink);
+  text-align: left;
+  padding-left: 10px;
+  min-width: 180px;
+}
+
+.blueprint-table td {
+  border: 1px solid rgba(28, 43, 58, 0.35);
+  padding: 4px;
+  vertical-align: top;
+  height: 64px;
+  min-width: 125px;
+  position: relative;
+  transition: background 0.15s ease;
+}
+
+.room-meta-cell {
+  background: rgba(47, 93, 138, 0.05);
+  font-weight: 600;
+  padding: 6px 8px !important;
+  border-right: 2px solid var(--ink) !important;
+}
+
+.room-name-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.room-sub-label {
+  font-size: 11px;
+  color: var(--blueprint);
+  margin-top: 2px;
+}
+
+.room-equip-tags {
+  font-size: 10px;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* Slot Droppable Cell */
+.slot-cell {
+  cursor: default;
+}
+
+.slot-cell.drag-over {
+  background: var(--blueprint-light) !important;
+  outline: 2px dashed var(--blueprint);
+}
+
+/* Course Pill / Card */
+.course-card {
+  border: 1px solid var(--ink);
+  padding: 4px 6px;
+  margin-bottom: 2px;
+  cursor: grab;
+  user-select: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.25;
+  position: relative;
+  background: #FFF;
+}
+
+.course-card:active {
+  cursor: grabbing;
+}
+
+.course-card.healthy {
+  border-left: 4px solid var(--signal-green);
+  background: var(--signal-green-bg);
+}
+
+.course-card.underutilized {
+  border-left: 4px solid #E6B800;
+  background: rgba(230, 184, 0, 0.15);
+}
+
+.course-card.overcapacity {
+  border-left: 4px solid var(--signal-amber);
+  background: var(--signal-amber-bg);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201, 122, 46, 0.15),
+    rgba(201, 122, 46, 0.15) 6px,
+    rgba(201, 122, 46, 0.3) 6px,
+    rgba(201, 122, 46, 0.3) 12px
+  );
+}
+
+.course-card.mismatch {
+  border: 2px solid var(--signal-amber);
+}
+
+.course-code {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.course-stats {
+  font-size: 10px;
+  color: #333;
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge-tag {
+  display: inline-block;
+  padding: 1px 3px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-overcap {
+  background: var(--signal-amber);
+  color: #FFF;
+}
+
+.badge-mismatch {
+  background: #B33927;
+  color: #FFF;
+}
+
+/* Annotation Callout Leader Box */
+.annotation-panel {
+  margin-top: 14px;
+  border: 1.5px solid var(--blueprint);
+  background: #FFF;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  position: relative;
+}
+
+.annotation-panel::before {
+  content: "[DRAFTING CALLOUT // LIVE AUDIT]";
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--blueprint);
+  margin-bottom: 4px;
+}

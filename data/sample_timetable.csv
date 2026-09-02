@@ -1,0 +1,29 @@
+event_id,course_code,course_name,section,faculty_id,enrolled_students,day,slot,room_id,required_equipment
+EV-101,CS-301,Algorithms & Optimization,Sec A,FAC-01,55,Monday,09:00-10:00,LH-102,"projector,whiteboard"
+EV-102,CS-402,Deep Learning Studio,Sec A,FAC-02,42,Monday,09:00-10:00,LAB-B,"projector,computers,gpu_cluster"
+EV-103,MATH-201,Linear Algebra,Sec B,FAC-04,25,Monday,09:00-10:00,SEM-02,projector
+EV-104,CS-301,Algorithms & Optimization,Sec B,FAC-01,38,Monday,10:00-11:00,CR-301,"projector,whiteboard"
+EV-105,SE-401,Cloud Systems & Reliability,Sec A,FAC-06,32,Monday,11:00-12:00,LH-101,projector
+EV-106,PHYS-101,Quantum Mechanics Intro,Sec A,FAC-05,68,Monday,11:00-12:00,LH-201,"smart_board,projector"
+EV-107,CS-205,Database Systems Lab,Sec A,FAC-02,28,Monday,14:00-15:00,LAB-B,"computers,projector"
+EV-108,CS-205,Database Systems Lab,Sec A,FAC-02,28,Monday,15:00-16:00,LAB-B,"computers,projector"
+EV-109,PHYS-102,Electromagnetism Seminar,Sec A,FAC-07,110,Monday,14:00-15:00,SEM-01,"audio_system,projector"
+EV-201,EE-304,Embedded Systems & IoT,Sec A,FAC-03,32,Tuesday,09:00-10:00,LAB-HW,"oscilloscopes,iot_kits"
+EV-202,EE-304,Embedded Systems & IoT,Sec A,FAC-03,32,Tuesday,10:00-11:00,LAB-HW,"oscilloscopes,iot_kits"
+EV-203,CS-101,Intro to Computation,Sec A,FAC-06,72,Tuesday,10:00-11:00,LH-101,"projector,audio_system"
+EV-204,MATH-302,Discrete Mathematics,Sec A,FAC-04,22,Tuesday,11:00-12:00,SEM-01,smart_board
+EV-205,CS-405,AI & Heuristic Search,Sec A,FAC-01,38,Tuesday,14:00-15:00,LH-202,projector
+EV-206,CS-405,AI & Heuristic Search,Sec A,FAC-01,38,Tuesday,15:00-16:00,LH-202,projector
+EV-301,CS-301,Algorithms & Optimization,Sec A,FAC-01,55,Wednesday,09:00-10:00,LH-102,"projector,whiteboard"
+EV-302,CS-402,Deep Learning Studio,Sec A,FAC-02,42,Wednesday,09:00-10:00,LAB-B,"projector,computers,gpu_cluster"
+EV-303,PHYS-101,Quantum Mechanics Intro,Sec A,FAC-05,68,Wednesday,11:00-12:00,LH-201,"smart_board,projector"
+EV-304,SE-401,Cloud Systems & Reliability,Sec A,FAC-06,32,Wednesday,14:00-15:00,CR-301,projector
+EV-305,INFO-201,Information & Coding Theory,Sec A,FAC-03,58,Wednesday,15:00-16:00,LH-101,"projector,audio_system"
+EV-401,CS-101,Intro to Computation,Sec A,FAC-06,72,Thursday,10:00-11:00,LH-101,"projector,audio_system"
+EV-402,EE-304,Embedded Systems & IoT,Sec A,FAC-03,32,Thursday,11:00-12:00,LAB-HW,"oscilloscopes,iot_kits"
+EV-403,MATH-201,Linear Algebra,Sec B,FAC-04,25,Thursday,14:00-15:00,SEM-02,projector
+EV-404,PHYS-102,Electromagnetism Seminar,Sec A,FAC-07,110,Thursday,15:00-16:00,SEM-01,"audio_system,projector"
+EV-501,CS-301,Algorithms & Optimization,Sec B,FAC-01,38,Friday,09:00-10:00,LH-202,"projector,whiteboard"
+EV-502,CS-205,Database Systems Lab,Sec B,FAC-02,44,Friday,10:00-11:00,LAB-B,"computers,projector"
+EV-503,CS-205,Database Systems Lab,Sec B,FAC-02,44,Friday,11:00-12:00,LAB-B,"computers,projector"
+EV-504,MATH-302,Discrete Mathematics,Sec A,FAC-04,22,Friday,14:00-15:00,LH-101,smart_board

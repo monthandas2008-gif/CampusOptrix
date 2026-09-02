@@ -1,0 +1,18 @@
+{
+  "name": "campusoptix",
+  "version": "1.0.0",
+  "description": "CampusOptix — Explainable Smart Campus Resource & Classroom Optimizer",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && ..\\.venv\\Scripts\\uvicorn main:app --port 8000 --reload",
+    "dev:gateway": "cd gateway && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently -n backend,gateway,frontend -c green,cyan,magenta \"npm run dev:backend\" \"npm run dev:gateway\" \"npm run dev:frontend\"",
+    "build:frontend": "cd frontend && npm run build",
+    "test:backend": ".\\.venv\\Scripts\\python -m pytest tests/ -v",
+    "test": "npm run test:backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,21 @@
+# FastAPI & Web Server
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+python-multipart>=0.0.9
+
+# Data Processing & Numerical
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Constraint Optimization & Graph Analytics
+ortools>=9.8.0
+networkx>=3.0
+
+# Visualizations & Metrics
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Testing
+pytest>=7.4.0
+

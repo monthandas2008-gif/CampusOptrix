@@ -1,0 +1,8 @@
+faculty_id,faculty_name,department,home_building
+FAC-01,Dr. Alan Turing,Computer Science,Tech Complex
+FAC-02,Dr. Grace Hopper,Computer Science,Tech Complex
+FAC-03,Dr. Claude Shannon,Information Theory,Science Block
+FAC-04,Dr. Ada Lovelace,Mathematics,Science Block
+FAC-05,Dr. John von Neumann,Physics,Science Block
+FAC-06,Dr. Margaret Hamilton,Software Eng,Tech Complex
+FAC-07,Prof. Richard Feynman,Physics,Arts Block

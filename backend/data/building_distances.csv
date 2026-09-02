@@ -1,0 +1,10 @@
+building_from,building_to,distance_meters
+Science Block,Science Block,0
+Science Block,Tech Complex,120
+Science Block,Arts Block,750
+Tech Complex,Science Block,120
+Tech Complex,Tech Complex,0
+Tech Complex,Arts Block,680
+Arts Block,Science Block,750
+Arts Block,Tech Complex,680
+Arts Block,Arts Block,0
