@@ -1,5 +1,5 @@
 """
-Synthetic Data Generator for CampusOptix.
+Synthetic Data Generator for CampusOptrix.
 Creates realistic university campus datasets with deliberate bottleneck scenarios:
 - Overcapacity in small lecture rooms/labs
 - Underutilized large auditoriums in morning/afternoon slots

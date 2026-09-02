@@ -1,5 +1,5 @@
 """
-Cosmetic Natural Language Phrasing Helper for CampusOptix.
+Cosmetic Natural Language Phrasing Helper for CampusOptrix.
 Converts structured Rule-Trace JSON dictionaries into natural narrative sentences.
 Deterministic fallback template ensures zero hallucination and zero runtime dependency on external APIs.
 """

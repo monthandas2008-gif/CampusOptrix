@@ -52,7 +52,7 @@ export default function AnalyticsPage({
           maxWidth: '700px',
           marginTop: '6px'
         }}>
-          By applying constrained mathematical optimization, CampusOptix eliminates overcapacity safety hazards, matches specialized laboratory equipment, and unlocks hidden campus seat capacity without requiring new construction.
+          By applying constrained mathematical optimization, CampusOptrix eliminates overcapacity safety hazards, matches specialized laboratory equipment, and unlocks hidden campus seat capacity without requiring new construction.
         </p>
       </div>
 

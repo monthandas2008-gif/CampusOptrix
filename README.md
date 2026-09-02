@@ -1,10 +1,10 @@
-# CampusOptix
+# CampusOptrix
 
 ## Explainable Smart Campus Resource & Classroom Optimizer
 
-CampusOptix is an explainable resource optimization engine and interactive 3D digital twin designed for modern university campuses. It models academic space allocation as an exact Integer Program using Google OR-Tools CP-SAT, generates deterministic step-by-step Rule Traces for every proposed schedule reassignment, and synchronizes live spatial telemetry across administrators, faculty, and students in real time.
+CampusOptrix is an explainable resource optimization engine and interactive 3D digital twin designed for modern university campuses. It models academic space allocation as an exact Integer Program using Google OR-Tools CP-SAT, generates deterministic step-by-step Rule Traces for every proposed schedule reassignment, and synchronizes live spatial telemetry across administrators, faculty, and students in real time.
 
-![CampusOptix Overview Dashboard](docs/screenshots/01-overview.png)
+![CampusOptrix Overview Dashboard](docs/screenshots/01-overview.png)
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](#)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688?logo=fastapi&logoColor=white)](#)
@@ -31,7 +31,7 @@ Universities face complex scheduling inefficiencies that degrade student learnin
 
 ## The Solution
 
-CampusOptix replaces opaque heuristics with a deterministic, constraint-satisfaction pipeline coupled to an interactive spatial digital twin:
+CampusOptrix replaces opaque heuristics with a deterministic, constraint-satisfaction pipeline coupled to an interactive spatial digital twin:
 
 ```mermaid
 flowchart LR
@@ -45,7 +45,7 @@ flowchart LR
 
 ---
 
-## Why CampusOptix
+## Why CampusOptrix
 
 1. **Explainable Optimization**: Every recommendation is backed by a deterministic Rule Trace detailing exact capacity math, equipment checklist verification, clash status, transit distance changes, and score deltas ($\Delta\text{UDS}$).
 2. **Constraint-Aware Global Allocation**: Powered by Google OR-Tools CP-SAT constraint programming, finding optimal room-to-event assignments across thousands of variable combinations in milliseconds.
@@ -198,7 +198,7 @@ Rather than generating black-box answers, the engine logs the exact constraint c
 
 ## AI Operations Assistant
 
-CampusOptix integrates a context-aware assistant built with the Google Gemini API:
+CampusOptrix integrates a context-aware assistant built with the Google Gemini API:
 
 - **Source of Truth**: The assistant does not generate speculative answers; it queries 18 specialized backend data tools (`get_campus_summary`, `get_room_details`, `get_underutilized_rooms`, `get_overcapacity_rooms`, `get_recommendations`, etc.) to retrieve live data before answering.
 - **Answer First, Action Second**: Every turn produces a factual natural-language summary with exact room and capacity metrics before attaching interactive UI action buttons.
@@ -226,7 +226,7 @@ CampusOptix integrates a context-aware assistant built with the Google Gemini AP
 ## Project Structure
 
 ```
-CampusOptix/
+CampusOptrix/
 ├── backend/                  # FastAPI Optimization Backend (Port 8000)
 │   ├── data/                 # Campus dataset CSVs (rooms, faculty, timetable, distances)
 │   ├── src/
@@ -346,14 +346,14 @@ This concurrently launches:
 
 ## Recommended Demo Walkthrough
 
-1. **Login Screen**: Navigate to [http://localhost:5173](http://localhost:5173). Select the **Campus Admin** tab and click **Sign In to Campus Admin** (`admin@campusoptix.edu` / `admin123`).
+1. **Login Screen**: Navigate to [http://localhost:5173](http://localhost:5173). Select the **Campus Admin** tab and click **Sign In to Campus Admin** (`admin@campusoptrix.edu` / `admin123`).
 2. **Identify Bottlenecks**: On the **Overview Dashboard**, inspect the total Campus UDS, active conflict alerts, and capacity overruns.
 3. **Inspect Space & 3D Twin**: Navigate to **Campus Map**, click on a room (e.g. `Lecture Hall 101`), and click **Launch 3D Room Viewer** to view procedural furniture and live seated student avatars.
 4. **Run Optimization**: Click **Find Better Allocation** in the header. The OR-Tools CP-SAT solver computes verified reassignments in milliseconds.
 5. **Inspect Rule Trace**: On the **Recommendations** page, click **View Rule Trace** to audit the exact capacity math, equipment checklist, and non-clash validation.
 6. **Test Scenario**: Click **Test in What-If** to open the interactive sandbox, drag classes between rooms/slots, and observe real-time UDS recalculations.
 7. **Ask AI Assistant**: Open the **AI Assistant** (or floating drawer), click `"What should I improve first?"`, and review the factual written response and contextual follow-up inquiries.
-8. **Test Role Portals**: Log out and sign in as **Faculty** (`faculty@campusoptix.edu` / `faculty123`) or **Student** (`student@campusoptix.edu` / `student123`) to test role-specific workflows and single-click `"Find Better Room"` 3D viewer transitions.
+8. **Test Role Portals**: Log out and sign in as **Faculty** (`faculty@campusoptrix.edu` / `faculty123`) or **Student** (`student@campusoptrix.edu` / `student123`) to test role-specific workflows and single-click `"Find Better Room"` 3D viewer transitions.
 
 ---
 
@@ -395,4 +395,4 @@ This concurrently launches:
 - **Event**: Spiderverse Hackathon 2026
 - **Organizer**: ASCAI
 - **Problem Statement 3**: Smart Campus Resource & Classroom Optimizer
-- **Solution**: CampusOptix — Deterministic Constraint Optimization, Explainable Rule Traces & Interactive 3D Spatial Digital Twin.
+- **Solution**: CampusOptrix — Deterministic Constraint Optimization, Explainable Rule Traces & Interactive 3D Spatial Digital Twin.

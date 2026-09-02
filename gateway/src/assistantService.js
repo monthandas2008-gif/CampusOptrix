@@ -1,5 +1,5 @@
 /**
- * CampusOptix AI Assistant Service.
+ * CampusOptrix AI Assistant Service.
  * Implements real Gemini Function-Calling loop:
  *   User Query -> Model calls Data Tool(s) -> Server executes against real data
  *   -> Server returns FunctionResponse -> Model synthesizes factual written answer -> UI actions attached.
@@ -11,14 +11,14 @@ const { GoogleGenAI, Type } = require('@google/genai');
 const { z } = require('zod');
 const tools = require('./assistantTools');
 
-const SYSTEM_INSTRUCTION = `You are CampusOptix Assistant, integrated into the CampusOptix Smart Campus Resource Optimizer.
+const SYSTEM_INSTRUCTION = `You are CampusOptrix Assistant, integrated into the CampusOptrix Smart Campus Resource Optimizer.
 
 MANDATORY DATA RETRIEVAL RULE:
 For ANY question about rooms, capacity, students, occupancy, utilization, faculty, equipment, timetable, conflicts, recommendations, UDS, Fit Score, Rule Trace, What-If scenarios, or optimization results, you MUST call the relevant data tool(s) before answering. You are NOT permitted to answer these topics from general knowledge, training data, or estimation — only from a tool's real returned result. This applies even if you believe you already know the answer from earlier in the conversation; if more than one exchange has passed, re-verify with a tool call rather than relying on memory of an earlier value, since the underlying data may have changed.
 
-If, after calling the appropriate tool(s), the data still doesn't answer the question, say exactly: "I don't have enough CampusOptix data to answer that accurately." Do not fill the gap with a plausible-sounding guess.
+If, after calling the appropriate tool(s), the data still doesn't answer the question, say exactly: "I don't have enough CampusOptrix data to answer that accurately." Do not fill the gap with a plausible-sounding guess.
 
-For general questions unrelated to CampusOptix (e.g. "what is Gemini"), answer normally without tools.
+For general questions unrelated to CampusOptrix (e.g. "what is Gemini"), answer normally without tools.
 
 ANSWER FIRST, ACT SECOND: written answer is mandatory for question-type input; UI actions are optional and never a substitute for the answer.
 
@@ -503,7 +503,7 @@ function generateExpertCampusAnswer(query, context = {}, history = []) {
   // Check if user asked about a specific non-existent room (e.g. "Room 999", "Lab Z")
   if (!targetRoom && (q.includes('room ') || q.includes('hall ') || q.includes('lab '))) {
     return {
-      message: "I don't have enough CampusOptix data to answer that accurately. The specified space was not found in the active campus inventory.",
+      message: "I don't have enough CampusOptrix data to answer that accurately. The specified space was not found in the active campus inventory.",
       entities: [],
       actions: [{ type: 'OPEN_CAMPUS_MAP', label: 'View Campus Map Inventory' }]
     };
@@ -512,7 +512,7 @@ function generateExpertCampusAnswer(query, context = {}, history = []) {
   // General Knowledge questions
   if (q.includes('what is gemini') || q.includes('who is gemini') || q.includes('what is ai')) {
     return {
-      message: "Gemini is Google's advanced multimodal AI model family, integrated into CampusOptix to provide live operational intelligence and explain mathematical constraint optimizations.",
+      message: "Gemini is Google's advanced multimodal AI model family, integrated into CampusOptrix to provide live operational intelligence and explain mathematical constraint optimizations.",
       entities: [],
       actions: [{ type: 'OPEN_ANALYTICS', label: 'Explore Campus Analytics' }]
     };

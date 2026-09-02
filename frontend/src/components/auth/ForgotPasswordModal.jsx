@@ -101,7 +101,7 @@ export default function ForgotPasswordModal({ isOpen, onClose }) {
               </label>
               <input
                 type="text"
-                placeholder="e.g. admin@campusoptix.edu or FAC-01"
+                placeholder="e.g. admin@campusoptrix.edu or FAC-01"
                 value={emailOrId}
                 onChange={(e) => setEmailOrId(e.target.value)}
                 required

@@ -21,7 +21,7 @@ import RequestAccessModal from './RequestAccessModal';
 
 export default function LoginPage({ onLoginSuccess }) {
   const [selectedRoleTab, setSelectedRoleTab] = useState('admin');
-  const [emailOrId, setEmailOrId] = useState('admin@campusoptix.edu');
+  const [emailOrId, setEmailOrId] = useState('admin@campusoptrix.edu');
   const [password, setPassword] = useState('admin123');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
@@ -36,13 +36,13 @@ export default function LoginPage({ onLoginSuccess }) {
     setSelectedRoleTab(role);
     setError(null);
     if (role === 'admin') {
-      setEmailOrId('admin@campusoptix.edu');
+      setEmailOrId('admin@campusoptrix.edu');
       setPassword('admin123');
     } else if (role === 'faculty') {
-      setEmailOrId('faculty@campusoptix.edu');
+      setEmailOrId('faculty@campusoptrix.edu');
       setPassword('faculty123');
     } else if (role === 'student') {
-      setEmailOrId('student@campusoptix.edu');
+      setEmailOrId('student@campusoptrix.edu');
       setPassword('student123');
     }
   }
@@ -61,9 +61,9 @@ export default function LoginPage({ onLoginSuccess }) {
 
       if (res.data.success && res.data.user) {
         if (rememberMe) {
-          localStorage.setItem('campusoptix_session_token', res.data.token);
+          localStorage.setItem('campusoptrix_session_token', res.data.token);
         } else {
-          sessionStorage.setItem('campusoptix_session_token', res.data.token);
+          sessionStorage.setItem('campusoptrix_session_token', res.data.token);
         }
         onLoginSuccess(res.data.user, res.data.token);
       }
@@ -142,7 +142,7 @@ export default function LoginPage({ onLoginSuccess }) {
                   color: '#FFFFFF',
                   lineHeight: 1.1
                 }}>
-                  CampusOptix
+                  CampusOptrix
                 </h1>
                 <div style={{
                   fontFamily: 'var(--font-mono)',
@@ -429,7 +429,7 @@ export default function LoginPage({ onLoginSuccess }) {
                 <input
                   type="text"
                   autoComplete="email"
-                  placeholder={selectedRoleTab === 'admin' ? 'admin@campusoptix.edu' : selectedRoleTab === 'faculty' ? 'faculty@campusoptix.edu' : 'student@campusoptix.edu'}
+                  placeholder={selectedRoleTab === 'admin' ? 'admin@campusoptrix.edu' : selectedRoleTab === 'faculty' ? 'faculty@campusoptrix.edu' : 'student@campusoptrix.edu'}
                   value={emailOrId}
                   onChange={(e) => setEmailOrId(e.target.value)}
                   required
@@ -565,7 +565,7 @@ export default function LoginPage({ onLoginSuccess }) {
               fontSize: '11.5px',
               color: 'var(--text-secondary)'
             }}>
-              <span>New to CampusOptix?</span>
+              <span>New to CampusOptrix?</span>
               <button
                 type="button"
                 onClick={() => setIsAccessModalOpen(true)}

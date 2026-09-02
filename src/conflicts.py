@@ -1,5 +1,5 @@
 """
-Rule-Based Conflict Detector for CampusOptix.
+Rule-Based Conflict Detector for CampusOptrix.
 Evaluates timetable data against room and faculty constraints using pure pandas/deterministic rules:
 - Overcapacity (RED)
 - Underutilization <30% (YELLOW)

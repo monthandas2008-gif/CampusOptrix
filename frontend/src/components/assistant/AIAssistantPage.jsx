@@ -147,7 +147,7 @@ export default function AIAssistantPage({
       const errorMessage = {
         id: `msg-${Date.now() + 1}`,
         role: 'assistant',
-        content: 'CampusOptix Assistant is temporarily unavailable. Core CampusOptix tools are still active.',
+        content: 'CampusOptrix Assistant is temporarily unavailable. Core CampusOptrix tools are still active.',
         actions: [{ type: 'OPEN_CAMPUS_MAP', label: 'Explore Campus Map' }],
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
@@ -272,7 +272,7 @@ export default function AIAssistantPage({
                 fontWeight: 800,
                 color: 'var(--text-primary)'
               }}>
-                CampusOptix Assistant
+                CampusOptrix Assistant
               </h2>
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '2px' }}>

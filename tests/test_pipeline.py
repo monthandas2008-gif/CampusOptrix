@@ -1,5 +1,5 @@
 """
-Comprehensive Test Suite for CampusOptix.
+Comprehensive Test Suite for CampusOptrix.
 Tests:
 - Schema Ingestion & Validation
 - Utilization Engine & UDS Scoring

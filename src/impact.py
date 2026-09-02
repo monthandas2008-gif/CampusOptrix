@@ -1,5 +1,5 @@
 """
-Impact Translator for CampusOptix.
+Impact Translator for CampusOptrix.
 Converts raw mathematical optimization metrics and UDS deltas into tangible, operational KPIs:
 - Hours/week of wasted room capacity reclaimed
 - Additional student seats unlocked

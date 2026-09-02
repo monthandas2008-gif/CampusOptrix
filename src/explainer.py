@@ -1,5 +1,5 @@
 """
-Deterministic Rule-Trace Explainer for CampusOptix.
+Deterministic Rule-Trace Explainer for CampusOptrix.
 Builds auditable, mathematical proof objects for every recommendation and rejection.
 Contains exact constraint verification logs, before/after score deltas, and zero LLM hallucination risk.
 """

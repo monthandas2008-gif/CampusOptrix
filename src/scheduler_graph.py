@@ -1,5 +1,5 @@
 """
-Conflict-Free New Event Scheduler for CampusOptix using NetworkX.
+Conflict-Free New Event Scheduler for CampusOptrix using NetworkX.
 Constructs a bipartite/conflict graph of candidate (room, slot) allocations for new ad-hoc class/event requests,
 and performs graph coloring & constraint filtering to return instant, zero-clash recommendations.
 """

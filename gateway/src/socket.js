@@ -1,5 +1,5 @@
 /**
- * Socket.io Real-Time Handler for CampusOptix Gateway.
+ * Socket.io Real-Time Handler for CampusOptrix Gateway.
  * Manages WebSocket synchronization for What-If drag simulator and global schedule synchronization.
  */
 

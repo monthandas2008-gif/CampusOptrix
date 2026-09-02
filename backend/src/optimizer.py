@@ -1,5 +1,5 @@
 """
-Mathematical Optimization Engine for CampusOptix using Google OR-Tools CP-SAT.
+Mathematical Optimization Engine for CampusOptrix using Google OR-Tools CP-SAT.
 Solves constrained classroom and laboratory reallocation problem to minimize Utilization Debt Score (UDS)
 and maximize multi-constraint fit while enforcing strict hard constraints:
 1. Strict room capacity (fire/safety code)

@@ -1,7 +1,7 @@
 /**
- * Express REST API Routes for CampusOptix Gateway.
+ * Express REST API Routes for CampusOptrix Gateway.
  * Proxies requests to FastAPI Python backend (http://localhost:8000),
- * hosts the CampusOptix AI Assistant service, and provides server-side Auth.
+ * hosts the CampusOptrix AI Assistant service, and provides server-side Auth.
  */
 
 const express = require('express');
@@ -153,7 +153,7 @@ router.post('/reset', async (req, res) => {
   }
 });
 
-// CampusOptix AI Assistant Message Endpoint
+// CampusOptrix AI Assistant Message Endpoint
 router.post('/assistant/message', async (req, res) => {
   try {
     const { message, assistantContext, conversationId, history } = req.body;
@@ -209,7 +209,7 @@ router.post('/assistant/message', async (req, res) => {
     console.error('Error in /api/assistant/message:', err);
     res.status(500).json({
       error: 'Assistant processing failed.',
-      message: 'CampusOptix Assistant is temporarily unavailable. Core CampusOptix tools are still active.'
+      message: 'CampusOptrix Assistant is temporarily unavailable. Core CampusOptrix tools are still active.'
     });
   }
 });

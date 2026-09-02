@@ -59,8 +59,8 @@ export default function App() {
 
   // 1. Ensure Login Page is always shown first on application start or page refresh
   useEffect(() => {
-    localStorage.removeItem('campusoptix_session_token');
-    sessionStorage.removeItem('campusoptix_session_token');
+    localStorage.removeItem('campusoptrix_session_token');
+    sessionStorage.removeItem('campusoptrix_session_token');
     setCurrentUser(null);
     setAuthChecking(false);
   }, []);
@@ -164,12 +164,12 @@ export default function App() {
   }
 
   function handleLogout() {
-    localStorage.removeItem('campusoptix_session_token');
-    sessionStorage.removeItem('campusoptix_session_token');
+    localStorage.removeItem('campusoptrix_session_token');
+    sessionStorage.removeItem('campusoptrix_session_token');
     setCurrentUser(null);
     setSelected3DRoom(null);
     setSelectedDrawerRoom(null);
-    setToast({ message: 'Signed out of CampusOptix workspace.', type: 'info' });
+    setToast({ message: 'Signed out of CampusOptrix workspace.', type: 'info' });
   }
 
   // 6. Handle Shared 3D Room Viewer Opening
@@ -482,7 +482,7 @@ export default function App() {
         fontSize: '14px',
         fontWeight: 600
       }}>
-        Loading CampusOptix Operations Platform...
+        Loading CampusOptrix Operations Platform...
       </div>
     );
   }
@@ -776,7 +776,7 @@ export default function App() {
         />
       )}
 
-      {/* Floating Launcher Button ("Ask CampusOptix") */}
+      {/* Floating Launcher Button ("Ask CampusOptrix") */}
       {activePage !== 'assistant' && (
         <button
           onClick={() => setIsFloatingAssistantOpen((prev) => !prev)}
@@ -804,7 +804,7 @@ export default function App() {
           onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
         >
           <Sparkles size={15} />
-          <span>Ask CampusOptix</span>
+          <span>Ask CampusOptrix</span>
         </button>
       )}
 

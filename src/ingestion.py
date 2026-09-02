@@ -1,5 +1,5 @@
 """
-Data Ingestion and Schema Validation Layer for CampusOptix.
+Data Ingestion and Schema Validation Layer for CampusOptrix.
 Loads timetable, rooms, faculty, and distance matrix from CSV, Excel, or SQLite.
 Validates required columns, ranges, and types, raising explicit descriptive errors.
 """

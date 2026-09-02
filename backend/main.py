@@ -1,5 +1,5 @@
 """
-FastAPI Backend Service for CampusOptix.
+FastAPI Backend Service for CampusOptrix.
 Exposes REST endpoints for:
 - /analyze: Baseline utilization, conflicts, and UDS calculation
 - /optimize: Google OR-Tools CP-SAT constrained optimization & rule-traces
@@ -32,7 +32,7 @@ from src.scheduler_graph import find_conflict_free_slots_for_event
 from src.llm_narrator import trace_to_sentence
 
 app = FastAPI(
-    title="CampusOptix Optimization API",
+    title="CampusOptrix Optimization API",
     description="Deterministic Constraint Satisfaction & Explainable Resource Scheduling",
     version="1.0.0"
 )
@@ -107,7 +107,7 @@ def get_active_dfs(req_timetable, req_rooms, req_faculty):
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok", "service": "CampusOptix Optimization Engine", "version": "1.0.0"}
+    return {"status": "ok", "service": "CampusOptrix Optimization Engine", "version": "1.0.0"}
 
 
 @app.get("/api/initial-state")

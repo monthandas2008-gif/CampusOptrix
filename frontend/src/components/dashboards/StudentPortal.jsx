@@ -231,7 +231,7 @@ export default function StudentPortal({
                   alignItems: 'center',
                   gap: '6px'
                 }}
-                title="Find a better room using CampusOptix optimization"
+                title="Find a better room using CampusOptrix optimization"
               >
                 <Sparkles size={15} />
                 <span>Find Better Room</span>

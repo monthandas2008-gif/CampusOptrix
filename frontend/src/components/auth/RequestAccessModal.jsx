@@ -100,7 +100,7 @@ export default function RequestAccessModal({ isOpen, onClose }) {
         ) : (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
-              Provide your details to request an authorized account on the CampusOptix platform.
+              Provide your details to request an authorized account on the CampusOptrix platform.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>

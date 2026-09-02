@@ -1,19 +1,19 @@
 /**
- * CampusOptix Authentication Service.
+ * CampusOptrix Authentication Service.
  * Real server-side authentication with bcrypt password hashing and JWT token verification.
  */
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'campusoptix-secure-production-jwt-key-2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'campusoptrix-secure-production-jwt-key-2026';
 const TOKEN_EXPIRY = '7d';
 
 // Seeded users for demonstration & production use
 const USERS = [
   {
     id: 'usr-admin-01',
-    email: 'admin@campusoptix.edu',
+    email: 'admin@campusoptrix.edu',
     username: 'admin',
     employeeId: 'ADM-001',
     passwordHash: bcrypt.hashSync('admin123', 10),
@@ -25,7 +25,7 @@ const USERS = [
   },
   {
     id: 'usr-faculty-01',
-    email: 'faculty@campusoptix.edu',
+    email: 'faculty@campusoptrix.edu',
     username: 'prof.chen',
     employeeId: 'FAC-01',
     passwordHash: bcrypt.hashSync('faculty123', 10),
@@ -39,7 +39,7 @@ const USERS = [
   },
   {
     id: 'usr-student-01',
-    email: 'student@campusoptix.edu',
+    email: 'student@campusoptrix.edu',
     username: 'alex.rivera',
     studentId: 'STU-2026-881',
     passwordHash: bcrypt.hashSync('student123', 10),

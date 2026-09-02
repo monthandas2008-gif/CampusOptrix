@@ -66,7 +66,7 @@ export default function Sidebar({ activePage, onNavigate, reallocationsCount = 0
                 color: 'var(--text-primary)',
                 lineHeight: 1.1
               }}>
-                CampusOptix
+                CampusOptrix
               </div>
               <div style={{
                 fontFamily: 'var(--font-mono)',

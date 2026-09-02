@@ -1,5 +1,5 @@
 """
-Unit & Integration tests for CampusOptix FastAPI endpoints.
+Unit & Integration tests for CampusOptrix FastAPI endpoints.
 Tests /health, /api/initial-state, /analyze, /optimize, /whatif, /new-event, /rejection-audit, and /reset.
 """
 
@@ -14,7 +14,7 @@ from backend.main import (
 def test_api_health():
     res = api_server.health_check()
     assert res["status"] == "ok"
-    assert "CampusOptix" in res["service"]
+    assert "CampusOptrix" in res["service"]
 
 
 def test_api_initial_state():

@@ -20,7 +20,7 @@ export default function FloatingAssistantOverlay({
     {
       id: 'init-1',
       role: 'assistant',
-      content: 'Hello! I am your CampusOptix Assistant. Ask me anything about room capacity, conflicts, recommendations, or 3D spatial models.',
+      content: 'Hello! I am your CampusOptrix Assistant. Ask me anything about room capacity, conflicts, recommendations, or 3D spatial models.',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       actions: [
         { type: 'SHOW_CONFLICTS', label: 'Check Conflicts' },
@@ -78,7 +78,7 @@ export default function FloatingAssistantOverlay({
       const errorMsg = {
         id: `msg-${Date.now() + 1}`,
         role: 'assistant',
-        content: 'CampusOptix Assistant is temporarily unavailable. Core CampusOptix tools are still active.',
+        content: 'CampusOptrix Assistant is temporarily unavailable. Core CampusOptrix tools are still active.',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, errorMsg]);
@@ -120,7 +120,7 @@ export default function FloatingAssistantOverlay({
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Sparkles size={16} color="#FFFFFF" />
-          <strong style={{ fontSize: '13px' }}>Ask CampusOptix</strong>
+          <strong style={{ fontSize: '13px' }}>Ask CampusOptrix</strong>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

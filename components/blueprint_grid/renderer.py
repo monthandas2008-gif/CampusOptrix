@@ -1,5 +1,5 @@
 """
-Blueprint Grid Component Renderer for CampusOptix.
+Blueprint Grid Component Renderer for CampusOptrix.
 Loads template.html and styles.css and substitutes data payloads for embedded Streamlit display.
 """
 

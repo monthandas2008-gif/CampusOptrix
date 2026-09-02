@@ -1,5 +1,5 @@
 /**
- * CampusOptix API Gateway Server.
+ * CampusOptrix API Gateway Server.
  * Express HTTP server + Socket.io WebSocket server on port 4000.
  */
 
@@ -38,7 +38,7 @@ initSocketHandlers(io);
 // Start Server
 server.listen(PORT, () => {
   console.log(`=============================================`);
-  console.log(`📐 CAMPUSOPTIX API GATEWAY RUNNING ON PORT ${PORT}`);
+  console.log(`📐 CAMPUSOPTRIX API GATEWAY RUNNING ON PORT ${PORT}`);
   console.log(`• REST Proxy ➔ /api/* ➔ http://localhost:8000`);
   console.log(`• WebSocket ➔ ws://localhost:${PORT}`);
   console.log(`=============================================`);

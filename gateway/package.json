@@ -1,7 +1,7 @@
 {
-  "name": "campusoptix-gateway",
+  "name": "campusoptrix-gateway",
   "version": "1.0.0",
-  "description": "Node.js Express & Socket.io API Gateway for CampusOptix",
+  "description": "Node.js Express & Socket.io API Gateway for CampusOptrix",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

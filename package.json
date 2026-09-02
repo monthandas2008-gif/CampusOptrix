@@ -1,7 +1,7 @@
 {
-  "name": "campusoptix",
+  "name": "campusoptrix",
   "version": "1.0.0",
-  "description": "CampusOptix — Explainable Smart Campus Resource & Classroom Optimizer",
+  "description": "CampusOptrix — Explainable Smart Campus Resource & Classroom Optimizer",
   "private": true,
   "scripts": {
     "dev:backend": "cd backend && ..\\.venv\\Scripts\\uvicorn main:app --port 8000 --reload",

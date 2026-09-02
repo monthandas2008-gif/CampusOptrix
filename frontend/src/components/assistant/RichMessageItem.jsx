@@ -102,7 +102,7 @@ export default function RichMessageItem({
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
           <span style={{ fontSize: '11.5px', fontWeight: 700, color: isUser ? 'var(--text-primary)' : 'var(--primary-blue)' }}>
-            {isUser ? 'You' : 'CampusOptix Assistant'}
+            {isUser ? 'You' : 'CampusOptrix Assistant'}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>

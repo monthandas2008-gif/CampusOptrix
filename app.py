@@ -1,5 +1,5 @@
 """
-CampusOptix — Explainable Smart Campus Resource & Classroom Optimizer
+CampusOptrix — Explainable Smart Campus Resource & Classroom Optimizer
 Entry Point for Streamlit Web Application.
 Adheres to "The Blueprint" architectural design system and deterministic OR-Tools optimization.
 """
@@ -32,7 +32,7 @@ from components.blueprint_grid.renderer import render_blueprint_grid_html
 
 # Set page config
 st.set_page_config(
-    page_title="CampusOptix — Explainable Resource Optimizer",
+    page_title="CampusOptrix — Explainable Resource Optimizer",
     page_icon="📐",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -191,7 +191,7 @@ if "rooms_df" not in st.session_state:
 with st.sidebar:
     st.markdown("""
     <div style="border: 2px solid #1C2B3A; padding: 10px; background:#FAF8F2; margin-bottom:15px;">
-      <div style="font-size:18px; font-weight:800; color:#1C2B3A; letter-spacing:1px;">📐 CAMPUSOPTIX</div>
+      <div style="font-size:18px; font-weight:800; color:#1C2B3A; letter-spacing:1px;">📐 CAMPUSOPTRIX</div>
       <div style="font-family:'IBM Plex Mono', monospace; font-size:10px; color:#2F5D8A;">EXPLAINABLE SCHEDULING ENGINE</div>
       <div style="font-family:'IBM Plex Mono', monospace; font-size:9px; color:#666; margin-top:4px;">OR-Tools CP-SAT • Zero Blackbox</div>
     </div>
@@ -273,7 +273,7 @@ st.markdown("""
 <div class="title-block">
   <div style="display:flex; justify-content:space-between; align-items:center;">
     <div>
-      <h1 class="title-block-header">CAMPUSOPTIX // EXPLAINABLE RESOURCE ALLOCATOR</h1>
+      <h1 class="title-block-header">CAMPUSOPTRIX // EXPLAINABLE RESOURCE ALLOCATOR</h1>
       <div class="title-block-sub">SPIDERVERSE HACKATHON 2026 • DETERMINISTIC CONSTRAINT SATISFACTION (OR-TOOLS CP-SAT)</div>
     </div>
     <div style="text-align:right; font-family:'IBM Plex Mono', monospace; font-size:11px; color:#1C2B3A;">

@@ -14,7 +14,7 @@ class GlobalErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('CampusOptix UI Crash caught by ErrorBoundary:', error, errorInfo);
+    console.error('CampusOptrix UI Crash caught by ErrorBoundary:', error, errorInfo);
     this.setState({ errorInfo });
   }
 
@@ -42,7 +42,7 @@ class GlobalErrorBoundary extends React.Component {
             border: '1px solid #3A506B'
           }}>
             <h2 style={{ fontSize: '20px', fontWeight: 800, color: '#FF6B6B', marginBottom: '8px' }}>
-              CampusOptix Interface Notice
+              CampusOptrix Interface Notice
             </h2>
             <p style={{ fontSize: '13px', color: '#E0E1DD', marginBottom: '16px', lineHeight: '1.5' }}>
               {this.state.error?.message || 'A UI component encountered an issue.'}

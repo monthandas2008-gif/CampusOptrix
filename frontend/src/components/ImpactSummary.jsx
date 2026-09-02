@@ -33,7 +33,7 @@ export default function ImpactSummary({ metrics, conflictSummary, impactSummary 
             color: 'var(--ink)',
             textTransform: 'uppercase'
           }}>
-            CampusOptix // Smart Classroom & Lab Allocator
+            CampusOptrix // Smart Classroom & Lab Allocator
           </div>
           <div style={{
             fontFamily: 'var(--font-mono)',

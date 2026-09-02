@@ -1,5 +1,5 @@
 /**
- * CampusOptix AI Assistant Data & Analytic Tools.
+ * CampusOptrix AI Assistant Data & Analytic Tools.
  * Real computational tools grounded in live campus data.
  */
 
