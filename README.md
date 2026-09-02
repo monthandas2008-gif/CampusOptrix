@@ -177,22 +177,22 @@ The optimization engine enforces the following mathematical constraints:
 - **Multi-Slot Lab Room Continuity**: Consecutive laboratory slots for the same course must remain in the same physical room.
 
 ### 2. Utilization Debt Score (UDS) Formula
-$$\text{UDS}(\text{room}, \text{slot}) = w_1 \cdot \text{idle\_penalty} + w_2 \cdot \text{mismatch\_penalty} + w_3 \cdot \text{overcap\_penalty}$$
+$$\text{UDS}(\text{room}, \text{slot}) = w_1 \cdot \text{Penalty}_{\text{idle}} + w_2 \cdot \text{Penalty}_{\text{mismatch}} + w_3 \cdot \text{Penalty}_{\text{overcapacity}}$$
 
-- **Idle Penalty**: $\max(0, 0.60 - \text{utilization}) \times 10.0$ *(penalizes allocating large halls for tiny cohorts)*
-- **Overcapacity Penalty**: $\max(0, \text{utilization} - 1.0) \times 30.0$ *(strict penalty for fire-safety overcapacity)*
-- **Equipment Mismatch Penalty**: $15.0 \text{ if required equipment is missing else } 0$
-- **Default Weights**: $w_1 = 1.0$, $w_2 = 1.5$, $w_3 = 3.0$
+- **Idle Penalty**: $\max(0,\, 0.60 - \text{utilization}) \times 10.0$ *(penalizes allocating large halls for tiny cohorts)*
+- **Overcapacity Penalty**: $\max(0,\, \text{utilization} - 1.0) \times 30.0$ *(strict penalty for fire-safety overcapacity)*
+- **Equipment Mismatch Penalty**: $15.0 \text{ if required equipment is missing, else } 0.0$
+- **Default Weights**: $w_1 = 1.0,\, w_2 = 1.5,\, w_3 = 3.0$
 
 ### 3. Multi-Constraint Fit Score
-$$\text{Fit} = \text{capacity\_fit} + \text{equipment\_fit} + \text{travel\_fit} + \text{buffer\_fit}$$
+$$\text{Fit} = \text{Fit}_{\text{capacity}} + \text{Fit}_{\text{equipment}} + \text{Fit}_{\text{travel}} + \text{Fit}_{\text{buffer}}$$
 Evaluates candidate room-slots for ad-hoc events by balancing capacity utilization (60–90%), equipment matching, minimal faculty walking distance, and adjacent schedule buffers.
 
 ### 4. Deterministic Rule Trace
 Rather than generating black-box answers, the engine logs the exact constraint checks performed during optimization:
 - Initial state verification (room, capacity, enrolled students, active equipment).
 - Target room verification (capacity headroom, hardware inventory match, timetable vacancy).
-- Mathematical delta calculation ($\Delta\text{UDS}$, utilization change percentage, zero conflict proof).
+- Mathematical delta calculation ($\Delta \text{UDS}$, utilization change percentage, zero conflict proof).
 
 ---
 
